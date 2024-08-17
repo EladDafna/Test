@@ -1,0 +1,23 @@
+name: SSH to VMware VM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        
+    - name: Connect to VM via SSH
+      run: |
+        ssh -o StrictHostKeyChecking=no user@vm-ip-address "echo 'Connected to VMware VM successfully!'"
