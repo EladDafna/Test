@@ -20,4 +20,4 @@ jobs:
         
     - name: Connect to VM via SSH
       run: |
-        ssh -o StrictHostKeyChecking=no docker@192.168.8.129 "echo 'Connected to VMware VM successfully!'"
+        ssh -o StrictHostKeyChecking=no ec2@ec2-18-159-48-153.eu-central-1.compute.amazonaws.com "echo 'Connected to VMware VM successfully!'"
