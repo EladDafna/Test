@@ -20,6 +20,8 @@ jobs:
         cd ~/.ssh
         ls -la
         pwd
+        hostname
+        whoami
         
     - name: Connect to VM via SSH
       run: |
