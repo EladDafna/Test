@@ -20,4 +20,4 @@ jobs:
         
     - name: Connect to VM via SSH
       run: |
-        ssh -o StrictHostKeyChecking=no -i ~/.ssh/key ubuntu@18.159.48.153 "echo 'Connected to VMware VM successfully!'"
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@18.159.48.153 "echo 'Connected to VMware VM successfully!'"
