@@ -17,6 +17,9 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
+        cd ~/.ssh
+        ls -la
+        pwd
         
     - name: Connect to VM via SSH
       run: |
