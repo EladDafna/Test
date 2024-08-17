@@ -11,15 +11,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      
+
     - name: Set up SSH key
       run: |
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        cd ~/.ssh
-        
+
     - name: Connect to VM via SSH
       run: |
-        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@18.159.48.153 "echo 'Connected to VMware VM successfully!'"
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@18.159.48.153 << 'EOF'
+        echo 'Connected to VMware VM successfully!'
         echo "My name is Elad" >> ~/3.txt
+        EOF
